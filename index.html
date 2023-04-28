@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array destructuring</title>
+</head>
+
+<body>
+
+
+
+    <script src="./book-data.js"></script>
+    <script>
+
+
+        let newbook = [];
+
+        //  function for newbookarr
+
+        let newbooksarr = (titlebook, authorbook) => {
+
+            let newbookobj = {};
+            newbookobj.title = titlebook;
+            newbookobj.author = authorbook;
+
+            newbook.push(newbookobj);
+        }
+
+
+
+
+        function extractTitleAndAuthor(books) {
+
+            // array destructuring
+
+            let [...book] = books;
+            // console.log(book);
+
+            book.map((item) => {
+                let title = item.title;
+                let author = item.author;
+                console.log(title);
+                console.log(author);
+
+                // function calling of newbookarr containing only book author and book title
+
+                newbooksarr(title, author);
+            })
+
+
+        }
+
+        extractTitleAndAuthor(books);
+
+
+        // new array of objects containing title and author name
+
+        console.log(newbook);
+
+        // Use the spread operator to pass the new array of objects as individual arguments.
+
+        let [...book1] = newbook;
+        console.log(book1);
+
+            // Normal functions are used before es6,arrow function are introduced in Es6.In arrow function a task can be 
+            //  through fewer codes.Arrow function don't support duplicate parameter.
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
